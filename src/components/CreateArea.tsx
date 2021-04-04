@@ -5,7 +5,7 @@ function CreateArea(props) {
     noteHead: "",
     noteBody: ""
   });
-  function handleChange(event:React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(event) {
     const { name, value } = event.target;
     setNote((prevValue) => {
       return {
@@ -15,7 +15,7 @@ function CreateArea(props) {
     });
     console.log(note);
   }
-  function submitNote(event:React.MouseEvent<HTMLButtonElement>) {
+  function submitNote(event) {
     props.onAdd(note);
     event.preventDefault();
 

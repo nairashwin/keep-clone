@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
+import "../index.css";
 
 function App() {
   const [notes, setNotes] = React.useState([]);
