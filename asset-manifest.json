@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/nairashwin/keep-clone/static/css/main.619e899d.chunk.css",
+    "main.js": "/nairashwin/keep-clone/static/js/main.9dd47d49.chunk.js",
+    "main.js.map": "/nairashwin/keep-clone/static/js/main.9dd47d49.chunk.js.map",
+    "runtime-main.js": "/nairashwin/keep-clone/static/js/runtime-main.1a295c9c.js",
+    "runtime-main.js.map": "/nairashwin/keep-clone/static/js/runtime-main.1a295c9c.js.map",
+    "static/js/2.a5c18784.chunk.js": "/nairashwin/keep-clone/static/js/2.a5c18784.chunk.js",
+    "static/js/2.a5c18784.chunk.js.map": "/nairashwin/keep-clone/static/js/2.a5c18784.chunk.js.map",
+    "index.html": "/nairashwin/keep-clone/index.html",
+    "static/css/main.619e899d.chunk.css.map": "/nairashwin/keep-clone/static/css/main.619e899d.chunk.css.map",
+    "static/js/2.a5c18784.chunk.js.LICENSE.txt": "/nairashwin/keep-clone/static/js/2.a5c18784.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1a295c9c.js",
+    "static/js/2.a5c18784.chunk.js",
+    "static/css/main.619e899d.chunk.css",
+    "static/js/main.9dd47d49.chunk.js"
+  ]
+}
