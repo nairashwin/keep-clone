@@ -3,40 +3,50 @@ import Header from "./Header";
 import CreateArea from "./CreateArea";
 import { noteProps } from "./CreateArea";
 import Footer from "./Footer";
-// import Note from "./Note";
+import Note from "./Note";
 import "../index.css";
 
 function App() {
-  const [notes, setNotes] = React.useState([]);
+  const [notes, setNotes] = React.useState<noteProps[]>([]);
 
 
   function addNote(note: noteProps) {
     // setNotes((prevNotes) => {
     //   return [...prevNotes, note];
     // });
-    setNotes((prevNotes) => ({
+    setNotes((prevNotes) => ([
       ...prevNotes, note
-    }
+    ]
     ))
     console.log(typeof notes);
-    console.log(notes);
-    
+    // console.log(notes);
+
   }
 
-  // function deleteNote(id) {
-  //   setNotes((prevNotes) => {
-  //     return prevNotes.filter((currItem, index) => {
-  //       return index !== id;
-  //     });
-  //   });
-  // console.log("Inside delete " + id);
+  function deleteNote(id: number) {
+    setNotes((prevNotes) => {
+      return prevNotes.filter((currItem, index) => {
+        return index !== id;
+      });
+    });
+    console.log("Inside delete " + id);
+  }
 
+  console.log(notes);
   return (
     <div>
       <Header />
       <CreateArea onAdd={addNote} />
-      {/* {notes.map()}
-      <Note /> */}
+      {notes.map((note, noteID) => {
+        return (
+          <Note
+            key={noteID}
+            id={noteID}
+            content={note.noteBody}
+            title={note.noteHead}
+            onDelete={deleteNote} />
+        );
+      })}
       <Footer />
     </div>
   );

@@ -1,14 +1,14 @@
-import React, { MouseEventHandler, useState } from "react";
+import React, { useState } from "react";
 
-export interface noteProps{
-    noteHead:string;
-    noteBody:string;
+export interface noteProps {
+    noteHead: string;
+    noteBody: string;
 }
 export interface CreateAreaProps {
     // onAdd(note: string[]): void;
     onAdd(note: noteProps): void;
 }
-const CreateArea = (onAdd: CreateAreaProps) => {
+const CreateArea = ({ onAdd }: CreateAreaProps) => {
     const [note, setNote] = useState({
         noteHead: "",
         noteBody: ""
@@ -19,15 +19,18 @@ const CreateArea = (onAdd: CreateAreaProps) => {
             ...prevValue,
             [name]: value
         }));
-        console.log(name);
-        console.log(value);
-        console.log(note);
+        // console.log(name);
+        // console.log(value);
+        // console.log(note);
     }
     const submitNote = (event: React.MouseEvent<HTMLButtonElement>) => {
+        onAdd(note)
+        setNote({
+            noteHead: "",
+            noteBody: ""
+        });
         event.preventDefault();
-        return (
-            onAdd.onAdd(note)
-        );
+
     }
     return (
         <div>
@@ -52,4 +55,5 @@ const CreateArea = (onAdd: CreateAreaProps) => {
     );
 
 }
+
 export default CreateArea;
