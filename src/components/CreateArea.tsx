@@ -1,49 +1,55 @@
-import React from "react";
+import React, { MouseEventHandler, useState } from "react";
 
-function CreateArea(props) {
-  const [note, setNote] = React.useState({
-    noteHead: "",
-    noteBody: ""
-  });
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setNote((prevValue) => {
-      return {
-        ...prevValue,
-        [name]: value
-      };
-    });
-    console.log(note);
-  }
-  function submitNote(event) {
-    props.onAdd(note);
-    event.preventDefault();
-
-    setNote({
-      noteHead: "",
-      noteBody: ""
-    });
-  }
-  return (
-    <div>
-      <form>
-        <input
-          onChange={handleChange}
-          name="noteHead"
-          placeholder="Title"
-          value={note.noteHead}
-        />
-        <textarea
-          onChange={handleChange}
-          name="noteBody"
-          placeholder="Take a note..."
-          rows={3}
-          value={note.noteBody}
-        />
-        <button onClick={submitNote}>Add</button>
-      </form>
-    </div>
-  );
+export interface noteProps{
+    noteHead:string;
+    noteBody:string;
 }
+export interface CreateAreaProps {
+    // onAdd(note: string[]): void;
+    onAdd(note: noteProps): void;
+}
+const CreateArea = (onAdd: CreateAreaProps) => {
+    const [note, setNote] = useState({
+        noteHead: "",
+        noteBody: ""
+    })
+    const handleChange = (event: { target: HTMLInputElement | HTMLTextAreaElement }) => {
+        const { name, value } = event.target;
+        setNote(prevValue => ({
+            ...prevValue,
+            [name]: value
+        }));
+        console.log(name);
+        console.log(value);
+        console.log(note);
+    }
+    const submitNote = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        return (
+            onAdd.onAdd(note)
+        );
+    }
+    return (
+        <div>
+            <form>
+                <input
+                    onChange={handleChange}
+                    name="noteHead"
+                    placeholder="Title"
+                    value={note.noteHead}
+                />
+                <textarea
+                    onChange={handleChange}
+                    name="noteBody"
+                    placeholder="Take a note..."
+                    rows={3}
+                    value={note.noteBody}
+                />
+                <button onClick={submitNote}>Add</button>
+                {/* <button>Add</button> */}
+            </form>
+        </div>
+    );
 
+}
 export default CreateArea;
