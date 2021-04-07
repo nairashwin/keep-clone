@@ -14,13 +14,9 @@ function App() {
     // setNotes((prevNotes) => {
     //   return [...prevNotes, note];
     // });
-    setNotes((prevNotes) => ([
-      ...prevNotes, note
-    ]
+    setNotes((prevNotes) => (
+      [...prevNotes, note]
     ))
-    console.log(typeof notes);
-    // console.log(notes);
-
   }
 
   function deleteNote(id: number) {
